@@ -2,11 +2,11 @@
 
 PostL is a postfix-notation stack-based golfing language inspired by many other golfing languages. There is a stack and another free-standing variable that can be used when it is inconvenient to put it onto the stack.
 
-There are two types of literals`: numbers and strings. A number is in the form of a Java float, formally \d+(\.\d+)? or \.\d+. A number cannot be written as a negative number directly. A string is in the form "..." or '...', and backslash-notation escapes characters in the exact same way as in Java. Writing a literal will push it onto the stack
+There are two types of literals: numbers and strings. A number is in the form of a Java float, formally `\d+(\.\d+)?` or \.\d+. A number cannot be written as a negative number directly. A string is in the form "..." or '...', and backslash-notation escapes characters in the exact same way as in Java. Writing a literal will push it onto the stack
 
 All operators are in postfix notation. This is a complete list of all operators and what they do (an operator can be represented in multiple ways, and so the various names are space-separated)`:
 
-`+ ADD SUM COMBINE`: Pops the top two items on the stack, adds them, and then pushes the sum onto the stack. Only works with numbers and strings (Note`: for strings, this adds them in reverse order because of how stacks work)
+`+ ADD SUM COMBINE`: Pops the top two items on the stack, adds them, and then pushes the sum onto the stack. Only works with numbers and strings (Note: for strings, this adds them in reverse order because of how stacks work)
 
 `# ++ ADD_ALL`: Pops everything off the stack, adds them all, and then pushes the result onto the stack. If the stack only has numbers, the numbers are added; otherwise, the objects are turned to strings and added.
 
@@ -24,7 +24,7 @@ All operators are in postfix notation. This is a complete list of all operators 
 
 `! FACT FACTORIAL`: Pops the top of the stack off, takes the factorial of the floor of that value, and then pushes the result onto the stack. Only works if the top is a number.
 
-`P ** EXPONENTIATE EXP POW POWER`: Pops the top two items on the stack, performs exponentiation, and then pushes the result onto the stack. Only works with numbers. Note that 3 4 ** returns 64 because the objects are popped off in reverse order.
+`P *\* EXPONENTIATE EXP POW POWER`: Pops the top two items on the stack, performs exponentiation, and then pushes the result onto the stack. Only works with numbers. Note that 3 4 ** returns 64 because the objects are popped off in reverse order.
 
 `R <-> REVERSE`: Reverses the stack
 
@@ -68,7 +68,7 @@ All operators are in postfix notation. This is a complete list of all operators 
 
 `\ SWAP`: Pops the top two items on the stack and pushes them back on in reverse order. 2 3 \ gives 3 2.
 
-`\` SKIP`: Pushes a SKIP processor flag onto the stack, which, when processed, does nothing. Requires no input.
+`<backtick> SKIP`: Pushes a SKIP processor flag onto the stack, which, when processed, does nothing. Requires no input.
 
 `E EMPTY EMPTY_STRING`: Pushes an empty string onto the stack. Requires no input.
 
