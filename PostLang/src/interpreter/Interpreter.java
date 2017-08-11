@@ -16,25 +16,48 @@ import converters.Converter;
 
 public class Interpreter {
 	public static void main(String[] args) throws IOException {
-		BufferedReader reader = new BufferedReader(new InputStreamReader(
-				System.in));
-		CommonOperators.init();
-		while (true) {
-			System.out.print("Code >>> ");
-			String input = reader.readLine();
-			try {
-				System.out.println("\n" + process(input));
-			} catch (Exception e) {
-				if (args.length < -1) // MODIFIER
-					throw e;
-				if (e instanceof NullPointerException) {
-					System.out
+		if (args.length == 0) {
+			BufferedReader reader = new BufferedReader(new InputStreamReader(
+					System.in));
+			CommonOperators.init();
+			while (true) {
+				System.out.print("Code >>> ");
+				String input = reader.readLine();
+				try {
+					System.out.println("\n" + process(input));
+				} catch (Exception e) {
+					if (args.length < -1) // MODIFIER
+						throw e;
+					if (e instanceof NullPointerException) {
+						System.out
 							.println("ERROR No such operator OR program was terminated");
-				} else if (e instanceof EmptyStackException) {
-					System.out
+					} else if (e instanceof EmptyStackException) {
+						System.out
 							.println("ERROR Stack is too small for the operation");
-				} else if (e instanceof RuntimeException) {
-					System.out.println("ERROR: " + e.getMessage());
+					} else if (e instanceof RuntimeException) {
+						System.out.println("ERROR: " + e.getMessage());
+					}
+				}
+			}
+		} else {
+			BufferedReader reader = new BufferedReader(new FileReader(args[0]));
+			CommonOperators.init();
+			while (true) {
+				String input = reader.readLine():
+				try {
+					System.out.println("\n" + process(input));
+				} catch (Exception e) {
+					if (args.length < -1) // MODIFIER
+						throw e;
+					if (e instanceof NullPointerException) {
+						System.out
+							.println("ERROR No such operator OR program was terminated");
+					} else if (e instanceof EmptyStackException) {
+						System.out
+							.println("ERROR Stack is too small for the operator");
+					} else if (e instanceof RuntimeException) {
+						System.out.println("ERROR: " + e.getMessage());
+					}
 				}
 			}
 		}
