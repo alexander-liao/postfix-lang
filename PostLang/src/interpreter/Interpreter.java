@@ -42,8 +42,8 @@ public class Interpreter {
 		} else {
 			BufferedReader reader = new BufferedReader(new FileReader(args[0]));
 			CommonOperators.init();
-			while (true) {
-				String input = reader.readLine():
+			String input;
+			while ((input = reader.readLine()) != null) {
 				try {
 					System.out.println("\n" + process(input));
 				} catch (Exception e) {
