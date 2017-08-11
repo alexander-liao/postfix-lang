@@ -85,18 +85,18 @@ public class CommonOperators {
 			"PRIME" }, Object.class) {
 		protected Object process(Object[] parameters) {
 			if (parameters[0] instanceof Numeral) {
-				Numeral number = (Numeral) parameters[0];
+				int number = (int) (((Numeral) parameters[0]).value);
 				for (int i = 2; i < number; i++) {
 					if (number % i == 0) {
-						return false;
+						return new Numeral(0);
 					}
 				}
-				return true;
+				return new Numeral(1);
 			} else {
-				throw IllegalArgumentException("Object was not a number for primality check.");
+				throw new IllegalArgumentException("Object was not a number for primality check.");
 			}
 		}
-	}
+	};
 
 	public static final Operator MULTIPLY = new BinaryOperator(new String[] {
 			"*", "MULTIPLY", "PRODUCT", "MULT" }, Numeral.class, Object.class) {
