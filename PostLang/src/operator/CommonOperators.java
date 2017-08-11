@@ -340,7 +340,7 @@ public class CommonOperators {
 	public static final Operator SWAP_TOP = new BinaryOperator(new String[] {
 			"SWAP", "\\" }, Object.class) {
 		protected Object process(Object[] parameters) {
-			return new Object[] { parameters[0], parameters[1] };
+			return new Object[] { parameters[1], parameters[0] };
 		}
 	};
 
