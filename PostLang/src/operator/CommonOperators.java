@@ -81,6 +81,23 @@ public class CommonOperators {
 		}
 	};
 
+	public static final Operator PRIME = new UnaryOperator(new String[] { "p",
+			"PRIME" }, Object.class) {
+		protected Object process(Object[] parameters) {
+			if (parameters[0] instanceof Numeral) {
+				Numeral number = (Numeral) parameters[0];
+				for (int i = 2; i < number; i++) {
+					if (number % i == 0) {
+						return false;
+					}
+				}
+				return true;
+			} else {
+				throw IllegalArgumentException("Object was not a number for primality check.");
+			}
+		}
+	}
+
 	public static final Operator MULTIPLY = new BinaryOperator(new String[] {
 			"*", "MULTIPLY", "PRODUCT", "MULT" }, Numeral.class, Object.class) {
 		protected Object process(Object[] parameters) {
