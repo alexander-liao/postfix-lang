@@ -30,13 +30,13 @@ public class Interpreter {
 					if (args.length < -1) // MODIFIER
 						throw e;
 					if (e instanceof NullPointerException) {
-						System.out
+						System.err
 							.println("ERROR No such operator OR program was terminated");
 					} else if (e instanceof EmptyStackException) {
-						System.out
+						System.err
 							.println("ERROR Stack is too small for the operation");
 					} else if (e instanceof RuntimeException) {
-						System.out.println("ERROR: " + e.getMessage());
+						System.err.println("ERROR: " + e.getMessage());
 					}
 				}
 			}
@@ -46,18 +46,18 @@ public class Interpreter {
 			String input;
 			while ((input = reader.readLine()) != null) {
 				try {
-					System.out.println("\n" + process(input));
+					process(input);
 				} catch (Exception e) {
 					if (args.length < -1) // MODIFIER
 						throw e;
 					if (e instanceof NullPointerException) {
-						System.out
+						System.err
 							.println("ERROR No such operator OR program was terminated");
 					} else if (e instanceof EmptyStackException) {
-						System.out
+						System.err
 							.println("ERROR Stack is too small for the operator");
 					} else if (e instanceof RuntimeException) {
-						System.out.println("ERROR: " + e.getMessage());
+						System.err.println("ERROR: " + e.getMessage());
 					}
 				}
 			}
